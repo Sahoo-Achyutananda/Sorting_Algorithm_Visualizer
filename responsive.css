@@ -1,0 +1,24 @@
+/*1015px width*/
+
+@media (max-width:1400px) {
+    .card{
+        width: 70vw;
+        height: 320px;
+        margin: 20px;
+        border-radius: 10px;
+        background-color: rgba(36, 32, 46, 0.527);
+    
+        display: flex;
+    }
+    
+    .main {
+        width: 60%;
+        padding: 40px;
+    }
+    
+    .side {
+        width:40%;
+        height: 100%;
+        background-color: rgba(41, 38, 50, 0.633);
+    }
+}
