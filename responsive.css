@@ -41,9 +41,7 @@
 }
 
 @media (max-width: 980px){
-    .tag_section {
-        /* display: none; */
-    }
+    
 
     .card {
         flex-direction: column;
@@ -82,6 +80,9 @@
         margin-top: 10px;
         gap: 20px;
     }
+    #tc, #sc {
+        display : none;
+    }
 
 }
 
@@ -106,5 +107,16 @@
 
     .complexity_box {
         width: 50%;
+    }
+
+    #time_complexity, #space_complexity {
+        display: none;
+    }
+
+    #tc, #sc {
+        display : block;
+        position : absolute;
+        left: 20px;
+
     }
 }

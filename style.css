@@ -135,22 +135,25 @@
     align-items: center;
     justify-content: center;
 
-    background-color: blueviolet;
+    background: linear-gradient( to right , rgb(147, 31, 255),  rgb(224, 50, 73));
     border-radius: 10px;
     padding-inline: 10px;
 
     font-size: 12px;
+    font-style: italic;
+    font-weight: 600;
 }
 .tag:hover {
-    background-color: rgb(98, 23, 167);
+    background: rgb(98, 23, 167);
 }
 
 .footer_bar {
     width: 100vw;
-    height: 30px;
-    background-color: rgb(255, 80, 80);
+    height: 25px;
+    background-color: rebeccapurple;
     display: flex;
     align-items: center;
+    margin-top: 30px;
     justify-content: center;
 
 }
@@ -159,9 +162,9 @@
     transform: scale(1.01);
     transition: transform 0.3s ease;
 
-    box-shadow: 5px 5px 10px  #47405164;
+    box-shadow: 5px 3px 10px  #47405164;
     border-right: solid 1px rgba(245, 245, 245, 0.538);
-    border-bottom: solid 1px rgba(245, 245, 245, 0.538);
+    /* border-bottom: solid 1px rgba(245, 245, 245, 0.538); */
 }
 
 
@@ -205,4 +208,8 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+
+#tc, #sc {
+    display : none;
 }
