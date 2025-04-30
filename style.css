@@ -104,26 +104,29 @@
 }
 
 .tag_section {
-    width: auto;
-    /* background-color: azure; */
-    padding-left: 40px;
-
-    position: absolute;
-    left: 0px;
-    bottom: 0px;
-
+    display : flex;
+    margin-bottom: 10px;
+}
+.title {
     display: flex;
-    flex-direction: row;
-    padding-bottom: 20px;
+    align-items: center;
+    flex-wrap: wrap;
     
 
 }
 
+.algo_name {
+    font-size: 25px;
+    font-weight: 900;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
 .tag {
     width: auto;
-    margin: 10px;
+    margin-right: 10px;
     height: 20px;
-    text-align: center;
+    /* text-align: center; */
 
     display: flex;
     flex-direction: row;
@@ -135,6 +138,9 @@
     padding-inline: 10px;
 
     font-size: 12px;
+}
+.tag:hover {
+    background-color: rgb(98, 23, 167);
 }
 
 .footer_bar {
@@ -154,4 +160,19 @@
     box-shadow: 5px 5px 10px  #47405164;
     border-right: solid 1px rgba(245, 245, 245, 0.538);
     border-bottom: solid 1px rgba(245, 245, 245, 0.538);
+}
+
+
+.complexities {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.time, .space {
+    width : 50%;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.747);
+    margin-top: 10px;
+    border-radius: 5px;
 }

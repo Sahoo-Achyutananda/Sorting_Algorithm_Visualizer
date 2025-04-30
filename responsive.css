@@ -76,4 +76,11 @@
     #visualize span, #resource_1 span, #resource_2 span {
         display: none;
     }
+
+    .complexities {
+        display: flex;
+        flex-direction: row;
+        margin-top: 10px;
+        gap: 20px;
+    }
 }
