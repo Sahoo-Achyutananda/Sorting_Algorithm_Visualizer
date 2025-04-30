@@ -165,14 +165,37 @@
 
 .complexities {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     margin-top: 10px;
+    gap: 20px;
 }
 
 .time, .space {
-    width : 50%;
+    width : 30%;
     height: 40px;
-    background-color: rgba(255, 255, 255, 0.747);
+    background-color: rgba(255, 255, 255, 0.13);
     margin-top: 10px;
     border-radius: 5px;
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 800;
+    color: black;
+
+    position: relative;
+}
+
+#time_complexity, #space_complexity {
+    position: absolute;
+    left:20px;
+}
+.complexity_box {
+    height:100%;
+    width:40%;
+    background-color: rgba(240, 248, 255, 0.089);
+    position: absolute;
+    right:0px;
+    border-left: 1px white;
 }
