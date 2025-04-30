@@ -47,6 +47,7 @@
         flex-direction: column;
         position : relative;
         padding: 40px;
+        height: 300px;
         
     }
 
@@ -88,6 +89,17 @@
 
 
 @media (max-width:668px){
+
+    .card{
+        width: 80vw;
+        height: 300px;
+        margin: 10px;
+        border-radius: 10px;
+        background-color: rgba(36, 32, 46, 0.527);
+    
+        display: flex;
+    }
+
     #visualize span, #resource_1 span, #resource_2 span {
         display: none;
     }
