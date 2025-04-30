@@ -22,3 +22,58 @@
         background-color: rgba(41, 38, 50, 0.633);
     }
 }
+
+/*985 width -> change the buttons and card size and slightly change the font*/
+
+/* @@media (max-width: 985px){
+
+} */
+
+
+/*850 width -> above changes + change card orientation*/
+
+
+@media (max-width: 850px){
+    .tag_section {
+        /* display: none; */
+    }
+
+    .card {
+        flex-direction: column;
+        position : relative;
+        padding: 40px;
+        
+    }
+
+    .main {
+        width : auto;
+        padding: 0px;
+        height: 75%;
+    }
+    .side {
+        width : 100%;
+        flex-direction: row;
+        height : 25%;
+        position : absolute;
+        bottom: 0px;    
+        left:0px; 
+        justify-content: space-around;   
+        box-sizing: border-box;
+        padding-inline: 20px;
+        /* padding-inline: px; */
+    }
+
+    .button {
+        width: 30%;
+        font-size: 13px;
+        padding-inline: 15px;
+    }
+
+}
+
+
+@media (max-width:668px){
+    #visualize span, #resource_1 span, #resource_2 span {
+        display: none;
+    }
+}
