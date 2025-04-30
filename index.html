@@ -46,10 +46,149 @@
             </button>
         </div>
     </div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
-    <div class="card"></div>
+    <div class="card">
+      <div class="main">
+        <div class="title">
+           <span class="algo_name">Selection Sort</span> 
+           <div class="tag_section">
+            <div class="tag" id = "stable">Unstable</div>
+            <div class="tag" id = "inplace">Inplace</div>
+            <div class="tag" id = "internal">Internal</div>
+           </div>
+        </div>
+        <p class="description">Repeatedly finds the minimum element and places it at the beginning.
+          Simple but inefficient for large datasets.</p>
+        <div class="complexities">
+          <div class="time">
+            <span id="time_complexity">Time</span>
+            <div class="complexity_box" id="time"> O(n^2)</div>
+          </div>
+          <div class="space">
+            <span id="space_complexity">Space</span>
+            <div class="complexity_box" id="space">O(n)</div>
+          </div>
+        </div>
+    
+      </div>
+    <div class="side">
+        <button class="button" id="visualize"><i class="bi bi-search"></i> 
+          <span class="text">Visualize</span> 
+        </button>
+        <button class="button" id="resource_1"> <img src="resource/GeeksForGeeks_logo.png" width = "25" alt=""> 
+          <span class="text">GeekForGeeks</span>
+        </button>
+        <button class="button" id="resource_2"> <img src="resource/LeetCode_logo_black.png" width = "20" height="20" alt=""> 
+        <span class="text">LeetCode</span>
+        </button>
+    </div>
+    </div>
+    <div class="card">
+      <div class="main">
+        <div class="title">
+           <span class="algo_name">Insertion Sort</span> 
+           <div class="tag_section">
+            <div class="tag" id = "stable">Stable</div>
+            <div class="tag" id = "inplace">Inplace</div>
+            <div class="tag" id = "internal">Internal</div>
+           </div>
+        </div>
+        <p class="description">Builds the sorted array one element at a time by inserting elements into their correct position. Efficient for small or nearly sorted arrays.</p>
+        <div class="complexities">
+          <div class="time">
+            <span id="time_complexity">Time</span>
+            <div class="complexity_box" id="time"> O(n^2)</div>
+          </div>
+          <div class="space">
+            <span id="space_complexity">Space</span>
+            <div class="complexity_box" id="space">O(n)</div>
+          </div>
+        </div>
+    
+      </div>
+    <div class="side">
+        <button class="button" id="visualize"><i class="bi bi-search"></i> 
+          <span class="text">Visualize</span> 
+        </button>
+        <button class="button" id="resource_1"> <img src="resource/GeeksForGeeks_logo.png" width = "25" alt=""> 
+          <span class="text">GeekForGeeks</span>
+        </button>
+        <button class="button" id="resource_2"> <img src="resource/LeetCode_logo_black.png" width = "20" height="20" alt=""> 
+        <span class="text">LeetCode</span>
+        </button>
+    </div>
+    </div>
+    <div class="card">
+      <div class="main">
+        <div class="title">
+           <span class="algo_name">Merge Sort</span> 
+           <div class="tag_section">
+            <div class="tag" id = "stable">Stable</div>
+            <div class="tag" id = "inplace">Out-of-place</div>
+            <div class="tag" id = "internal">Internal</div>
+           </div>
+        </div>
+        <p class="description">Divides the array into halves, recursively sorts them, and merges the sorted halves.
+          Time complexity is O(n log n), and it's good for large data.</p>
+        <div class="complexities">
+          <div class="time">
+            <span id="time_complexity">Time</span>
+            <div class="complexity_box" id="time"> O(nlogn)</div>
+          </div>
+          <div class="space">
+            <span id="space_complexity">Space</span>
+            <div class="complexity_box" id="space">O(n)</div>
+          </div>
+        </div>
+    
+      </div>
+    <div class="side">
+        <button class="button" id="visualize"><i class="bi bi-search"></i> 
+          <span class="text">Visualize</span> 
+        </button>
+        <button class="button" id="resource_1"> <img src="resource/GeeksForGeeks_logo.png" width = "25" alt=""> 
+          <span class="text">GeekForGeeks</span>
+        </button>
+        <button class="button" id="resource_2"> <img src="resource/LeetCode_logo_black.png" width = "20" height="20" alt=""> 
+        <span class="text">LeetCode</span>
+        </button>
+    </div>
+    </div>
+    <div class="card">
+      <div class="main">
+        <div class="title">
+           <span class="algo_name">Quick Sort</span> 
+           <div class="tag_section">
+            <div class="tag" id = "stable">Unstable</div>
+            <div class="tag" id = "inplace">Inplace</div>
+            <div class="tag" id = "internal">Internal</div>
+           </div>
+        </div>
+        <p class="description">Selects a pivot, partitions the array around it, and recursively sorts the partitions.
+          Very fast in practice with O(n log n) average time, but worst-case is O(n²).</p>
+        <div class="complexities">
+          <div class="time">
+            <span id="time_complexity">Time</span>
+            <div class="complexity_box" id="time"> O(n^2)</div>
+          </div>
+          <div class="space">
+            <span id="space_complexity">Space</span>
+            <div class="complexity_box" id="space">O(n)</div>
+          </div>
+        </div>
+    
+      </div>
+    <div class="side">
+        <button class="button" id="visualize"><i class="bi bi-search"></i> 
+          <span class="text">Visualize</span> 
+        </button>
+        <button class="button" id="resource_1"> <img src="resource/GeeksForGeeks_logo.png" width = "25" alt=""> 
+          <span class="text">GeekForGeeks</span>
+        </button>
+        <button class="button" id="resource_2"> <img src="resource/LeetCode_logo_black.png" width = "20" height="20" alt=""> 
+        <span class="text">LeetCode</span>
+        </button>
+    </div>
+    </div>
     <div class="footer_bar">
         <p class="note" style = "font-weight: 700;"> Made with 💜 by Achyutananda Sahoo </p>
     </div>

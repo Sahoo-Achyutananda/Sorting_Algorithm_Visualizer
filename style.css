@@ -4,6 +4,8 @@
     overflow: auto;
     font-family :"Roboto",sans-serif ;
     color: antiquewhite;
+
+    overflow-x: hidden;
 }
 
 .parent {
