@@ -198,4 +198,9 @@
     position: absolute;
     right:0px;
     border-left: 1px white;
+
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }

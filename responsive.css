@@ -32,9 +32,11 @@
 
 /*850 width -> above changes + change card orientation*/
 
-@media (max-width : 1100px){
-    .card{
-        font-size: 0.9em;
+@media (max-width : 1360px){
+    .time, .space {
+        width : 40%;
+        height: 40px;
+        
     }
 }
 
@@ -99,17 +101,10 @@
     .time, .space {
         width : 40%;
         height: 40px;
-        background-color: rgba(255, 255, 255, 0.747);
-        margin-top: 10px;
-        border-radius: 5px;
-    
-        display:flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 15px;
-        font-weight: 800;
-        color: black;
-    
-        position: relative;
+        
+    }
+
+    .complexity_box {
+        width: 50%;
     }
 }
