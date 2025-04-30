@@ -13,7 +13,7 @@
     <div class="settings">
         <div class="section">
           <span id="speed">Speed</span>
-          <input class = "custom_slider" min = "0.25" max = "2" step="0.25" value = "1" type="range" id="speed_slider">
+          <input class = "custom_slider" min = "0.25" max = "8" step="0.25" value = "1" type="range" id="speed_slider">
         </div>
         <div class="section">
           <span id="count">Count</span>
@@ -40,6 +40,37 @@
         <div class="main_box">
             
         </div>
+        <div class="clue">
+          <div class="counts">
+            <!-- <div class="current_num"> -->
+              <p id="current_label"> Current </p>
+              <span id="current_num"></span>
+            <!-- </div> -->
+            
+            <!-- <div class="adjacent_num"> -->
+            <p id="adjacent_label"> Neighbour </p>
+            <span id="adjacent_num"></span>
+            <!-- </div> -->
+          </div>
+
+          <div class="result_box">
+            <div class="swap_class">
+              
+              <span id="swap_num"></span>
+              <p id="swap_label">Swaps</p>
+            </div>
+            <div class="comparison">
+              <span id="comparison_num"></span>
+              <p id="comparison_label">Comparisons</p>
+            </div>
+            <div class="time_taken">
+              
+              <span id="time_num"></span>
+              <p id="time_label">Time</p>
+            </div>
+          </div>
+        </div>
+        
     </div>
     <div class="notes"></div>
   </div>

@@ -24,9 +24,9 @@
     align-items: center;
 }
 
-span {
+/* span {
     margin-right: 20px;
-}
+} */
 .section {
 
     width: 25%;
@@ -54,6 +54,7 @@ span {
     height: 25px;
     padding-inline: 2px;
     border-radius: 5px;
+    margin-inline: 10px;
     border: 3px solid rgba(255, 255, 255);
     
     background-color: rebeccapurple;
@@ -99,7 +100,7 @@ span {
     -webkit-appearance: none;
     appearance: none;
     width : 50px;
-    margin-inline: 20px;
+    /* margin-inline: 20px; */
     border-radius: 5px;
     height: 27px;
     text-align: center;
@@ -145,7 +146,7 @@ span {
 
 .main_box {
     width: 90vw;
-    height: 500px;
+    height: 350px;
     background-color: rgba(102, 51, 153, 0.112);
     margin-top: 20px;
 
@@ -153,3 +154,130 @@ span {
     flex-direction: row;
     align-items:start;
 }
+
+.clue {
+    width: 90vw;
+    height: 100px;
+    background-color: rgba(102, 51, 153, 0.112);
+    margin-top: 10px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.counts{
+    height : 100%;
+    width :50%;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background-color: rgba(102, 51, 153, 0.078) ;
+
+    border-right: solid 0.5px rgba(255, 255, 255, 0.221);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    color : whitesmoke;
+    font: 700 20px "Poppins", sans-serif;
+
+    gap: 10px;
+    
+}
+
+.counts:hover{
+    background-color: rgba(26, 16, 36, 0.485);
+}
+
+/* .current_num, .adjacent_num {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 50%;
+
+    align-items: center;
+    justify-content: space-around;
+
+    margin: 20px;
+} */
+
+.result_box{
+    height : 100%;
+    width :50%;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: rgba(102, 51, 153, 0.078) ;
+
+    border-left: solid 0.5px rgba(255, 255, 255, 0.221);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    color : whitesmoke;
+    /* font: 700 20px "Poppins", sans-serif; */
+}
+
+span#current_num, span#adjacent_num{
+    width : 25%;
+    height: 70%;
+    border-radius: 5px;
+    margin-left: 10px;
+    margin-right: 20px;
+
+    color: white;
+    font:700 20px "Poppins", sans-serif;
+
+    display: flex;
+    flex-direction: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.swap_class, .comparison, .time_taken {
+    display: flex;
+    flex-direction: column;
+    width : 30%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+span#comparison_num, span#swap_num, span#time_num {
+    width : 80%;
+    height: 40%;
+    border-radius: 5px;
+    /* margin-left: 10px; */
+    margin-bottom:10px;
+    color: white;
+    font:700 15px "Poppins", sans-serif;
+    display: flex;
+    flex-direction: center;
+    align-items: center;
+    justify-content: center;
+}
+
+span#swap_num{
+    background-color: rgba(137, 43, 226, 0.142);
+}
+
+span#comparison_num{
+    background-color: rgba(137, 43, 226, 0.142);
+}
+
+span#time_num{
+    background-color: rgba(137, 43, 226, 0.142);
+}
+
+span#current_num{
+    background-color: rgba(220, 20, 60, 0.245);
+
+}
+span#adjacent_num{
+    background-color: rgba(34, 139, 34, 0.274);
+
+}
+
