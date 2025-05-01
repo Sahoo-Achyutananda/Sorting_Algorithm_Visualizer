@@ -27,7 +27,7 @@
 .sticky_bar{
     width: 100vw;
     height: 65px;
-    background-color: antiquewhite;
+    background-color: rgba(102, 51, 153, 0.219);
     position: sticky;
     margin-bottom: 20px;
     display: flex;
@@ -36,9 +36,9 @@
     justify-content: center;
     font-family: Minecraftia;
     /* text-align: center; */
-    color: black;
+    color: whitesmoke;
     font-size: 40px;
-    font-weight: 800;
+    font-weight: 600;
     
 }
 
@@ -170,8 +170,8 @@
 
 .footer_bar {
     width: 100vw;
-    height: 25px;
-    background-color: rebeccapurple;
+    height: 40px;
+    background-color: rgba(102, 51, 153, 0.295);
     display: flex;
     align-items: center;
     margin-top: 30px;
