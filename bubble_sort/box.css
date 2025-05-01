@@ -1,5 +1,6 @@
 .box {
-    background-color: blueviolet;
+    background: linear-gradient(rgb(86, 8, 164), rgba(255, 255, 255, 0.021));
+    /* background-color: blueviolet; */
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     

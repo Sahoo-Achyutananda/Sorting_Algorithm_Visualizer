@@ -22,8 +22,6 @@ window.onload = function(){
     fillContainer(); // affects only when the page is loaded for the first time , for reloads it doesnt work
 }
 
-window.onr
-
 resetBtn.addEventListener("click",()=>{
 
     if(controller) {
@@ -64,13 +62,10 @@ startBtn.addEventListener("click", ()=>{
     comparisonNum.textContent = "";
     
 
-    startBtn.disabled = true;
+    startBtn.disabled = "true";
 
     controller = new AbortController()
     bubbleSort(controller.signal);
-
-    startBtn.disabled = false;
-
 })
 
 
@@ -93,6 +88,6 @@ startBtn.addEventListener("click", ()=>{
 window.addEventListener('load', () => {
     if (performance.getEntriesByType('navigation') === 'reload') {
         // Reload detected
-        fillContainer();
+        fillContainer(); 
     }
 });

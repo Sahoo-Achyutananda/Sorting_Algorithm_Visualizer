@@ -1,7 +1,7 @@
 export let mainBox = document.querySelector(".main_box");
 export let countSlider = document.querySelector("#count_slider");
 export let countText = document.querySelector("#count_value");
-export let speedSlider = document.querySelector("#speed");
+export let speedSlider = document.querySelector("#speed_slider");
 
 
 export function randomDelay(time){
@@ -18,6 +18,10 @@ export function getRandomHeight(){
 }
 
 export function fillContainer(value = 20){
+
+    countSlider.value = value;
+    countText.value = value;
+
     for(let i = 1; i <=value; i++){
         let box = document.createElement('div');
         box.classList.add("box");
@@ -26,7 +30,7 @@ export function fillContainer(value = 20){
 
         mainBox.appendChild(box);
     }
-
+    speedSlider.value = "1" ;
 }
 
 export function clearContainer(){

@@ -3,16 +3,27 @@
     padding: 0px;
     font-family: "Roboto", sans-serif;
 
-    overflow-x: visible;
+    box-sizing: border-box;
+
+    /* overflow: hidden; */
+}
+
+body,html {
+    height: 100%;
+    width: 100%;
+
+    /* overflow: hidden; */
 }
 
 .main {
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     background-color: rgb(23, 21, 27);
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    overflow-x: hidden;
 
 }
 
@@ -29,6 +40,7 @@
 /* span {
     margin-right: 20px;
 } */
+
 .section {
 
     width: 25%;
@@ -133,7 +145,7 @@
     
 }
 
-.start:hover{
+.start:hover, .start:active{
     background-color: rgb(17, 75, 17);
     
 }
@@ -142,13 +154,14 @@
     background-color: crimson;
 }
 
-.reset:hover{
+.reset:hover, .reset:active{
     background-color: rgb(126, 12, 34);
 }
 
 .main_box {
     width: 90vw;
     height: 350px;
+    flex: 1;
     background-color: rgba(102, 51, 153, 0.112);
     margin-top: 20px;
 
@@ -184,24 +197,23 @@
     justify-content: center;
 
     color : whitesmoke;
-    font: 700 20px "Poppins", sans-serif;
+    /* font: 700 20px "Poppins", sans-serif; */
 
     gap: 10px;
     
 }
 
-.counts:hover{
+.counts:hover, .result_box:hover{
     background-color: rgba(26, 16, 36, 0.485);
 }
 
 .current_num, .adjacent_num {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    width : 50%;
     height: 100%;
-    width: 50%;
-    padding-inline: 20px ;
+    justify-content: center;
     align-items: center;
-    justify-content:space-around;
 }
 
 .result_box{
@@ -221,16 +233,21 @@
     /* font: 700 20px "Poppins", sans-serif; */
 }
 
+#current_label, #adjacent_label {
+    font: 15px "Roboto", sans-serif;
+}
+
 span#current_num, span#adjacent_num{
-    width : 50%;
-    height: 70%;
+    width : 80%;
+    height: 40%;
     border-radius: 5px;
-    margin-left: 10px;
+    /* margin-left: 10px; */
     /* margin-right: 20px; */
 
     color: white;
-    font:700 20px "Poppins", sans-serif;
+    font:700 15px "Poppins", sans-serif;
 
+    margin-bottom: 10px;
     display: flex;
     flex-direction: center;
     align-items: center;

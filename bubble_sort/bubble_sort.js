@@ -14,12 +14,20 @@ export async function bubbleSort(signal){
     let neighbourNum = document.getElementById("adjacent_num");
     let swapNum = document.getElementById("swap_num");
     let comparisonNum = document.getElementById("comparison_num");
+    let startBtn = document.querySelector(".start");
     
     for(let i = 0;i< heights.length -1; i++){
         for(let j = 0; j <heights.length - i - 1; j++){
 
-            if(signal.aborted)
-                return;
+
+            // detect RESET and abort the current execution
+            if(signal.aborted){
+                console.log("Inside Bubble : " ,signal.aborted);
+                neighbourNum.textContent = "";
+                currentNum.textContent = "";
+                startBtn.disabled = false;
+                break;
+            }
 
             let speed = document.querySelector("#speed_slider").value;
             let speedFactor = 1/speed ;
@@ -63,8 +71,7 @@ export async function bubbleSort(signal){
         }
     }
 
-    neighbourNum.textContent = "";
-    currentNum.textContent = "";
     
+
     
 }
