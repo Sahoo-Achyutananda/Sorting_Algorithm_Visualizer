@@ -35,3 +35,8 @@ window.addEventListener('load', () => {
         fillContainer();
     }
 });
+
+
+2. was getting wrong results due to a fixed transition set in the css ... Added transition based on the speed 
+set by the user dynamically using JS.
+

@@ -31,6 +31,11 @@ export async function bubbleSort(signal){
 
             let speed = document.querySelector("#speed_slider").value;
             let speedFactor = 1/speed ;
+            let transitionDuration = 500 * speedFactor;
+
+            boxes.forEach(box => {
+                box.style.transition = `height ${transitionDuration}ms ease`;
+            });
 
             boxes[j].classList.add('current');
             currentNum.textContent = parseInt(boxes[j].style.height);
