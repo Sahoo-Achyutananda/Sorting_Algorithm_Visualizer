@@ -9,7 +9,7 @@
 }
 
 .parent {
-    width: 100vw;
+    width: 100%;
     height: auto;
     display: flex;
     flex-direction: column;    
@@ -27,25 +27,30 @@
 }
 
 .card{
-    width: 70vw;
-    height: 250px;
+    width: 70%;
+    height: auto;
     margin: 20px;
-    border-radius: 10px;
-    background-color: rgba(36, 32, 46, 0.527);
+    /* border-radius: 10px; */
+    /* background-color: rgba(36, 32, 46, 0.527); */
 
     display: flex;
+    flex-direction: row;
 }
 
 .main {
     width: 75%;
+    height: auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(36, 32, 46, 0.527);
     padding: 40px;
 
-    position: relative;
 }
 
 .side {
     width: 25%;
-    height: 100%;
+    height: auto;
     /* padding-top: */
     background-color: rgba(41, 38, 50, 0.633);
 
@@ -183,7 +188,7 @@
     border-radius: 5px;
 
     display:flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     font-size: 15px;
     font-weight: 800;
@@ -194,7 +199,7 @@
 
 #time_complexity, #space_complexity {
     position: absolute;
-    left:20px;
+    left:20%;
 }
 .complexity_box {
     height:100%;

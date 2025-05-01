@@ -3,7 +3,7 @@
 @media (max-width:1400px) {
     .card{
         width: 70vw;
-        height: 320px;
+        height: auto;
         margin: 20px;
         border-radius: 10px;
         background-color: rgba(36, 32, 46, 0.527);
@@ -13,12 +13,12 @@
     
     .main {
         width: 60%;
-        padding: 40px;
+        /* padding: 40px; */
     }
     
     .side {
         width:40%;
-        height: 100%;
+        height: auto;
         background-color: rgba(41, 38, 50, 0.633);
     }
 }
@@ -46,27 +46,29 @@
     .card {
         flex-direction: column;
         position : relative;
-        padding: 40px;
-        height: 300px;
+        /* padding: 40px; */
+        height: auto;
         
     }
 
     .main {
         width : auto;
-        padding: 0px;
-        height: 75%;
+        padding-bottom: 5%;
+        height: auto;
+
     }
     .side {
         width : 100%;
         flex-direction: row;
-        height : 25%;
-        position : absolute;
+        height : auto;
+        /* position : absolute;
         bottom: 0px;    
-        left:0px; 
+        left:0px;  */
         justify-content: space-around;   
         box-sizing: border-box;
-        padding-inline: 20px;
-        /* padding-inline: px; */
+        
+        padding-top: 2%;
+        padding-bottom: 2%;
     }
 
     .button {
@@ -92,12 +94,23 @@
 
     .card{
         width: 80vw;
-        height: 300px;
-        margin: 10px;
-        border-radius: 10px;
-        background-color: rgba(36, 32, 46, 0.527);
+        height: auto;
+        /* margin: 10px; */
+        /* border-radius: 10px; */
+        /* background-color: rgba(36, 32, 46, 0.527); */
     
         display: flex;
+    }
+    .main{
+        /* height: 80%; */
+        padding-top:20px;
+        padding-inline: 20px;
+        padding-bottom: 10px;
+    }
+
+    .side{
+        /* height: 20%; */
+        padding-top: 10px;
     }
 
     #visualize span, #resource_1 span, #resource_2 span {
@@ -128,7 +141,7 @@
     #tc, #sc {
         display : block;
         position : absolute;
-        left: 10px;
+        left: 20%;
 
     }
 }
