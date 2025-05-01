@@ -1,0 +1,28 @@
+/*1300 - adjust the current and neighbour widths and spacing , slider widths can also be adjusted*/
+
+@media (max-width : 1300px){
+
+    .clue {
+        height: 90px;
+    }
+    span#current_num, span#adjacent_num{
+        width : 50%;
+        height: 70%;
+        color: white;
+        font:700 17px "Poppins", sans-serif;
+    }
+
+    #current_label, #adjacent_label {
+        font-size: 16px;
+    }
+}
+/*1100 - move swap, comparison ad time below the current and neighbour- move teh start and reset button below the sliders*/
+
+@media (max-width : 1100px){
+    
+
+}
+
+
+/*800 -  the sliders and buttons must be stacked */
+

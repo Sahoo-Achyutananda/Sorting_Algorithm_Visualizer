@@ -2,6 +2,8 @@
     margin: 0px;
     padding: 0px;
     font-family: "Roboto", sans-serif;
+
+    overflow-x: visible;
 }
 
 .main {
@@ -192,17 +194,15 @@
     background-color: rgba(26, 16, 36, 0.485);
 }
 
-/* .current_num, .adjacent_num {
+.current_num, .adjacent_num {
     display: flex;
     flex-direction: row;
     height: 100%;
     width: 50%;
-
+    padding-inline: 20px ;
     align-items: center;
-    justify-content: space-around;
-
-    margin: 20px;
-} */
+    justify-content:space-around;
+}
 
 .result_box{
     height : 100%;
@@ -222,11 +222,11 @@
 }
 
 span#current_num, span#adjacent_num{
-    width : 25%;
+    width : 50%;
     height: 70%;
     border-radius: 5px;
     margin-left: 10px;
-    margin-right: 20px;
+    /* margin-right: 20px; */
 
     color: white;
     font:700 20px "Poppins", sans-serif;

@@ -18,8 +18,11 @@ let comparisonNum = document.getElementById("comparison_num");
 let controller = null;
 
 window.onload = function(){
-    fillContainer();
+
+    fillContainer(); // affects only when the page is loaded for the first time , for reloads it doesnt work
 }
+
+window.onr
 
 resetBtn.addEventListener("click",()=>{
 
@@ -53,13 +56,43 @@ countText.addEventListener("input", ()=>{
 })
 
 startBtn.addEventListener("click", ()=>{
-    clearContainer();
-    fillContainer(countText.value);
+    // clearContainer();
+    // fillContainer(countText.value);
+    currentNum.textContent = "";
+    neighbourNum.textContent = "";
+    swapNum.textContent = "";
+    comparisonNum.textContent = "";
+    
+
     startBtn.disabled = true;
 
     controller = new AbortController()
     bubbleSort(controller.signal);
+
+    startBtn.disabled = false;
+
 })
 
 
 
+// reloading + function invokation : but this solution works only when there is a button in the page
+// that reloads the page ||| it wont work when the browser's reload button is pressed !
+
+// function reloadPage(){
+//     sessionStorage.setItem("reload", "true");
+// }
+
+// window.onload = function(){
+//     const reloading = sessionStorage.getItem("reloading");
+//     if(reloading){
+//         sessionStorage.removeItem("reloading");
+//         fillContainer();
+//     }
+// }
+
+window.addEventListener('load', () => {
+    if (performance.getEntriesByType('navigation') === 'reload') {
+        // Reload detected
+        fillContainer();
+    }
+});

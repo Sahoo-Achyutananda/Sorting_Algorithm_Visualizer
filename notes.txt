@@ -1,0 +1,37 @@
+I learned a few new things - 
+
+1. AbortController()
+2. window.onload only works when the site is loaded for the first time, on reloading - the function doesnt trigger at all.
+3. difference between localStorage and sessionStorage API 
+
+    sessionStorage:The sessionStorage API is a browser-based storage mechanism that allows you to store key-value pairs for a specific session. This means that the data stored in sessionStorage is only available while the browser tab or window is open, and it's cleared when the tab or window is closed. 
+    It's designed for temporary data that needs to be accessible during a user's browsing session
+
+
+
+
+
+CHALLENGES FACED - 
+1. find a way to trigger a function on reload - 
+
+ANS : window.loaction.reload() only reloads the page , doesnt
+invoke any function ... therfore use it along with the combination of sessionStorage
+-> this works only when a button on the page initiates the reload
+
+-> another solution was to use the "performance" object - it returns the performance based attributes as an object
+
+window.addEventListener('load', () => {
+    if (performance.navigation.type === 1) {
+        // Reload detected
+        yourFunctionOnReload();
+    }
+});
+
+.navigation is deprecated .. i used this instead
+
+window.addEventListener('load', () => {
+    if (performance.getEntriesByType('navigation') === 'reload') {
+        // Reload detected
+        fillContainer();
+    }
+});
