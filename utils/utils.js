@@ -30,7 +30,7 @@ export function fillContainer(value = 20){
 
         mainBox.appendChild(box);
     }
-    speedSlider.value = "1" ;
+    // speedSlider.value = "1" ;
 }
 
 export function clearContainer(){

@@ -4,7 +4,9 @@ import {bubbleSort} from "./bubble_sort.js";
 let mainBox = document.querySelector(".main_box");
 let countSlider = document.querySelector("#count_slider");
 let countText = document.querySelector("#count_value");
-let speedSlider = document.querySelector("#speed");
+
+let speedSlider = document.querySelector("#speed_slider");
+let speedValue = document.querySelector('#speed_value');
 
 let startBtn = document.querySelector(".start");
 let resetBtn =document.querySelector(".reset");
@@ -45,6 +47,7 @@ countSlider.addEventListener("input", ()=>{
     countText.value = countSlider.value;
     clearContainer();
     fillContainer(countText.value);
+
 })
 
 countText.addEventListener("input", ()=>{
@@ -53,19 +56,31 @@ countText.addEventListener("input", ()=>{
     fillContainer(countSlider.value);
 })
 
-startBtn.addEventListener("click", ()=>{
+// updating speed value based on input value and viceversa
+speedSlider.addEventListener("input", ()=>{
+    speedValue.value = speedSlider.value;
+
+})
+
+speedValue.addEventListener("input", ()=>{
+    speedSlider.value = speedValue.value;
+})
+
+startBtn.addEventListener("click", async ()=>{
     // clearContainer();
     // fillContainer(countText.value);
-    currentNum.textContent = "";
-    neighbourNum.textContent = "";
+    
     swapNum.textContent = "";
     comparisonNum.textContent = "";
-    
-
     startBtn.disabled = "true";
 
-    controller = new AbortController()
-    bubbleSort(controller.signal);
+    controller = new AbortController();
+    await bubbleSort(controller.signal);
+
+    document.getElementById("current_num").textContent = "";
+    document.getElementById("adjacent_num").textContent = "";
+
+    console.log("Done");
 })
 
 
@@ -89,5 +104,6 @@ window.addEventListener('load', () => {
     if (performance.getEntriesByType('navigation') === 'reload') {
         // Reload detected
         fillContainer(); 
+    
     }
 });
