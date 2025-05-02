@@ -22,11 +22,7 @@ export async function bubbleSort(signal){
 
             // detect RESET and abort the current execution
             if(signal.aborted){
-                console.log("Inside Bubble : " ,signal.aborted);
-                neighbourNum.textContent = "";
-                currentNum.textContent = "";
-                startBtn.disabled = false;
-                break;
+                return;
             }
 
             let speed = document.querySelector("#speed_slider").value;

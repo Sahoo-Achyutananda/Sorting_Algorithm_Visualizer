@@ -24,7 +24,7 @@ window.onload = function(){
     fillContainer(); // affects only when the page is loaded for the first time , for reloads it doesnt work
 }
 
-resetBtn.addEventListener("click",()=>{
+function clearUp(){
 
     if(controller) {
         controller.abort(); // stop the current sort
@@ -40,23 +40,21 @@ resetBtn.addEventListener("click",()=>{
     clearContainer();
     fillContainer(countText.value);
 
+}
+
+resetBtn.addEventListener("click", ()=>{
+    clearUp();
 })
 
 // updating slider value based on input value and viceversa
 countSlider.addEventListener("input", ()=>{
     countText.value = countSlider.value;
-    if(controller) {
-        controller.abort(); // stop the current sort
-    }
-    clearContainer();
-    fillContainer(countText.value);
-
+    clearUp();
 })
 
 countText.addEventListener("input", ()=>{
     countText.value = countSlider.value;
-    clearContainer();
-    fillContainer(countSlider.value);
+    clearUp();
 })
 
 // updating speed value based on input value and viceversa
@@ -72,18 +70,15 @@ speedValue.addEventListener("input", ()=>{
 startBtn.addEventListener("click", async ()=>{
     // clearContainer();
     // fillContainer(countText.value);
-    
-    swapNum.textContent = "";
-    comparisonNum.textContent = "";
+
     startBtn.disabled = "true";
 
     controller = new AbortController();
     await bubbleSort(controller.signal);
 
-    document.getElementById("current_num").textContent = "";
-    document.getElementById("adjacent_num").textContent = "";
-
-    console.log("Done");
+    currentNum.textContent = "";
+    neighbourNum.textContent = "";
+    comparisonNum.textContent = "";
 })
 
 

@@ -1,7 +1,12 @@
-export let mainBox = document.querySelector(".main_box");
-export let countSlider = document.querySelector("#count_slider");
-export let countText = document.querySelector("#count_value");
-export let speedSlider = document.querySelector("#speed_slider");
+let mainBox = document.querySelector(".main_box");
+let countSlider = document.querySelector("#count_slider");
+let countText = document.querySelector("#count_value");
+let speedSlider = document.querySelector("#speed_slider");
+
+let currentNum = document.getElementById("current_num");
+let neighbourNum = document.getElementById("adjacent_num");
+let swapNum = document.getElementById("swap_num");
+let comparisonNum = document.getElementById("comparison_num");
 
 
 export function randomDelay(time){
@@ -34,6 +39,12 @@ export function fillContainer(value = 20){
 }
 
 export function clearContainer(){
+
+    currentNum.textContent = "";
+    neighbourNum.textContent = "";
+    swapNum.textContent = "";
+    comparisonNum.textContent = "";
+
     let boxes = document.querySelectorAll(".box");
     boxes.forEach((box)=>{
         mainBox.removeChild(box);

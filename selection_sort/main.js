@@ -16,6 +16,7 @@ let currentNum = document.getElementById("current_num");
 let neighbourNum = document.getElementById("adjacent_num");
 let swapNum = document.getElementById("swap_num");
 let comparisonNum = document.getElementById("comparison_num");
+let minNum = document.getElementById("minimum_num");
 
 let controller = null;
 
@@ -30,11 +31,6 @@ resetBtn.addEventListener("click",()=>{
         controller.abort(); // stop the current sort
     }
 
-    currentNum.textContent = "";
-    neighbourNum.textContent = "";
-    swapNum.textContent = "";
-    comparisonNum.textContent = "";
-
     startBtn.disabled = false;
     countText.value = countSlider.value;
     clearContainer();
@@ -45,6 +41,9 @@ resetBtn.addEventListener("click",()=>{
 // updating slider value based on input value and viceversa
 countSlider.addEventListener("input", ()=>{
     countText.value = countSlider.value;
+    if(controller) {
+        controller.abort(); // stop the current sort
+    }
     clearContainer();
     fillContainer(countText.value);
 
@@ -70,8 +69,7 @@ startBtn.addEventListener("click", async ()=>{
     // clearContainer();
     // fillContainer(countText.value);
     
-    swapNum.textContent = "";
-    comparisonNum.textContent = "";
+    
     startBtn.disabled = "true";
 
     controller = new AbortController();
@@ -79,10 +77,13 @@ startBtn.addEventListener("click", async ()=>{
 
     document.getElementById("current_num").textContent = "";
     document.getElementById("adjacent_num").textContent = "";
+    swapNum.textContent = "";
+    comparisonNum.textContent = "";
+    minNum.textContent = "";
     // swapNum.textContent = "";
     // comparisonNum.textContent = "";
 
-    console.log("Done");
+    // console.log("Done");
 })
 
 
