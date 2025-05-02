@@ -25,6 +25,11 @@ let neighbourNum = document.getElementById("adjacent_num");
 let swapNum = document.getElementById("swap_num");
 let comparisonNum = document.getElementById("comparison_num");
 
+function checkSpeed(){
+    let speed = document.querySelector("#speed_slider").value;
+    let speedFactor = 1/speed ;
+    return speedFactor;
+}
 
 let controller = null;
 
@@ -76,53 +81,6 @@ speedValue.addEventListener("input", ()=>{
     speedSlider.value = speedValue.value;
 })
 
-
-
-// startBtn.addEventListener("click", async ()=>{
-//     // clearContainer();
-//     // fillContainer(countText.value);
-
-//     // let boxes = document.querySelectorAll(".box");
-//     startBtn.disabled = "true";
-//     swapNum.textContent = "";
-//     comparisonNum.textContent = "";
-
-//     let boxes = initializeValues();
-//     console.log(boxes);
-//     controller = new AbortController();
-//     await mergeSort(controller.signal,boxes,0,boxes.length-1);
-
-//     // let h = []
-//     // boxes.forEach((x)=>{
-//     //     h.push(x.style.height);
-//     // })
-
-//     console.log(h);
-
-//     currentNum.textContent = "";
-//     neighbourNum.textContent = "";
-//     // comparisonNum.textContent = "";
-
-//     startBtn.disabled = false;
-// })
-
-
-
-// reloading + function invokation : but this solution works only when there is a button in the page
-// that reloads the page ||| it wont work when the browser's reload button is pressed !
-
-// function reloadPage(){
-//     sessionStorage.setItem("reload", "true");
-// }
-
-// window.onload = function(){
-//     const reloading = sessionStorage.getItem("reloading");
-//     if(reloading){
-//         sessionStorage.removeItem("reloading");
-//         fillContainer();
-//     }
-// }
-
 window.addEventListener('load', () => {
     if (performance.getEntriesByType('navigation') === 'reload') {
         // Reload detected
@@ -138,6 +96,7 @@ async function merge(signal,l, m, r) {
         minNum.textContent = "";
         return;
     }
+    let speedFactor = checkSpeed();
 
   const boxes = document.querySelectorAll(".box");
   const L = values.slice(l, m + 1);
@@ -147,34 +106,54 @@ async function merge(signal,l, m, r) {
 
   while (i < L.length && j < R.length) {
     comparisons++;
-    // comparisonNum.textContent = comparisons;
+    comparisonNum.textContent = comparisons;
     
-    await util.randomDelay(speedFactor);
+    // Highlighting elements being compared (from left and right subarrays)
+    const leftIndex = l + i;
+    const rightIndex = m + 1 + j;
+    boxes[leftIndex].classList.add('compared');
+    boxes[rightIndex].classList.add('compared');
+
+    await util.randomDelay(500*speedFactor);
     
     if (L[i] <= R[j]) {
+      boxes[k].classList.add('swap');  
       values[k] = L[i];
       boxes[k].style.height = `${L[i]}px`;
+      boxes[k].classList.remove('swap');
       i++;
     } else {
+      boxes[k].classList.add('swap');
       values[k] = R[j];
       boxes[k].style.height = `${R[j]}px`;
+      boxes[k].classList.remove('swap');
       j++;
       swaps++;
-    //   swapNum.textContent = swaps;
+      swapNum.textContent = swaps;
     }
     k++;
+    // Remove comparison highlights
+  boxes[leftIndex].classList.remove('compared');
+  boxes[rightIndex].classList.remove('compared');
   }
+  
 
   while (i < L.length) {
+    boxes[k].classList.add('swap');
     values[k] = L[i];
     boxes[k].style.height = `${L[i]}px`;
+    await util.randomDelay(500*speedFactor);
+    boxes[k].classList.remove('swap');
     i++;
     k++;
   }
 
   while (j < R.length) {
+    boxes[k].classList.add('swap');
     values[k] = R[j];
     boxes[k].style.height = `${R[j]}px`;
+    await util.randomDelay(500*speedFactor);
+    boxes[k].classList.remove('swap');
     j++;
     k++;
   }
@@ -191,13 +170,12 @@ export async function mergeSort(signal, left, right) {
 
 startBtn.addEventListener("click", async () => {
     startBtn.disabled = true;
-    // swapNum.textContent = "0";
-    // comparisonNum.textContent = "0";
+    swapNum.textContent = "0";
+    comparisonNum.textContent = "0";
     
-    // Initialize values from DOM
-    values = util.initializeValues(); // Now using the util version
+    values = util.initializeValues();
     
-    const controller = new AbortController();
+    controller = new AbortController();
     
     try {
       await mergeSort(controller.signal, 0, values.length - 1);
