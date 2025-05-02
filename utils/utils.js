@@ -8,6 +8,15 @@ let neighbourNum = document.getElementById("adjacent_num");
 let swapNum = document.getElementById("swap_num");
 let comparisonNum = document.getElementById("comparison_num");
 
+export function initializeValues() {
+    const boxes = document.querySelectorAll(".box");
+    let values = [];
+    boxes.forEach((x)=>{
+        values.push(parseInt(x.style.height));
+    })
+
+    return values;
+  }
 
 export function randomDelay(time){
     return new Promise((res,rej)=>{

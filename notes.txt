@@ -40,3 +40,6 @@ window.addEventListener('load', () => {
 2. was getting wrong results due to a fixed transition set in the css ... Added transition based on the speed 
 set by the user dynamically using JS.
 
+3. Merge Sort implementation was very Tricky !
+
+-> In your original code, merge reads heights from the DOM (which are dynamically changing), causing later mergeSort calls to process partially merged data instead of the original unsorted subarrays. This breaks the divide-and-conquer logic of merge sort.

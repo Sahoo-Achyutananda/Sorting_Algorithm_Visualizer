@@ -1,0 +1,27 @@
+.box {
+    background: linear-gradient(rgb(86, 8, 164), rgba(255, 255, 255, 0.021));
+    /* background-color: blueviolet; */
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    
+    margin-right: 2px;
+
+    /* transition: height 0.5s ease; */
+}
+
+.current {
+    background: linear-gradient(rgba(220, 20, 60, 0.362),crimson);
+}
+
+.compared {
+    background: linear-gradient(rgba(34, 139, 34, 0.444), forestgreen);
+}
+
+.swap {
+    background: linear-gradient(rgba(128, 0, 128, 0.367) , purple);
+}
+
+.swapped {
+    background-color: purple !important;
+    color:white !important;
+}
