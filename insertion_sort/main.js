@@ -1,5 +1,5 @@
 import { fillContainer, clearContainer, getRandomHeight, sayHello } from "../utils/utils.js";
-import {insertionSortSort} from "./insertion_sort.js";
+import {insertionSort} from "./insertion_sort.js";
 
 let mainBox = document.querySelector(".main_box");
 let countSlider = document.querySelector("#count_slider");
@@ -73,7 +73,7 @@ startBtn.addEventListener("click", async ()=>{
     startBtn.disabled = "true";
 
     controller = new AbortController();
-    await selectionSort(controller.signal);
+    await insertionSort(controller.signal);
 
     document.getElementById("current_num").textContent = "";
     document.getElementById("adjacent_num").textContent = "";

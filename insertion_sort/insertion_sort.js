@@ -32,71 +32,60 @@ export async function insertionSort(signal){
             return;
         }
 
-        let key = boxes[i].style.height;
+        let key = parseInt(boxes[i].style.height);
         let j = i - 1;
+        // console.log(key);
         speedFactor = checkSpeed();
         
         boxes[i].classList.add('current');
         currentNum.textContent = parseInt(boxes[i].style.height);
+        await util.randomDelay(500*speedFactor);
+        boxes[i].classList.remove('current');
         
 
-        while(j >=0 && parseInt(boxes[j].style.height > key)){
+        while(j >=0 && parseInt(boxes[j].style.height) > key){
             speedFactor = checkSpeed();
+            boxes.forEach(box => {
+                box.style.transition = `height ${500*speedFactor}ms ease`;
+            });
             // detect RESET and abort the current execution
             if(signal.aborted){
                 return;
             }
+            
 
-            boxes.forEach(box => {
-                box.style.transition = `height ${500*speedFactor}ms ease`;
-            });
-
+            neighbourNum.textContent = `${parseInt(boxes[j+1].style.height)}, ${parseInt(boxes[j].style.height)}`
+            boxes[j+1].classList.add('compared');
             boxes[j].classList.add('compared');
             await util.randomDelay(500*speedFactor);
-            neighbourNum.textContent = parseInt(boxes[j].style.height);
+            boxes[j+1].classList.remove('compared');
+            boxes[j].classList.remove('compared');
             
             comparisons++;
             comparisonNum.textContent = comparisons;
 
-            if(parseInt(window.getComputedStyle(boxes[j]).height) < parseInt(window.getComputedStyle(boxes[min_index]).height)){
-                let prevMins = document.querySelectorAll(".min_element");
-                if(prevMins){
-                    prevMins.forEach((x)=>{
-                        x.classList.remove('min_element');
-                    });
-                }
-                min_index = j;
-                minNum.textContent = parseInt(window.getComputedStyle(boxes[min_index]).height);
-                boxes[min_index].classList.add('min_element');
-            }
-            boxes[j].classList.remove('compared');
-        }
-    
-        boxes[i].classList.add('swap');
-        boxes[min_index].classList.add('swap');
 
-        // the following line has to be here - not before add "swap" 
-        boxes[min_index].classList.remove('min_element');
-        minNum.textContent = "";
-        
-        if(i != min_index){
-            util.swapStyles(boxes[i],boxes[min_index]);
+            boxes[j+1].classList.add('swap');
+            boxes[j].classList.add('swap');
             swaps++;
             swapNum.textContent = swaps;
+
+            boxes[j+1].style.height = boxes[j].style.height;
+            document.getElementById("swap_num").classList.add('swapped');
+            await util.randomDelay(500*speedFactor);
+            boxes[j+1].classList.remove('swap');
+            boxes[j].classList.remove('swap');
+            await util.randomDelay(500*speedFactor);
+            document.getElementById("swap_num").classList.remove('swapped');
+
+            j = j-1;
+
+            
         }
 
-        document.getElementById("swap_num").classList.add('swapped'); // expecting a blinking effect whenever a swap happens
-        await util.randomDelay(500*speedFactor);
-
-
-        boxes[i].classList.remove('swap');
-        boxes[min_index].classList.remove('swap');
-        document.getElementById("swap_num").classList.remove('swapped');
-
-        boxes[i].classList.remove('current');
-
-        if(boxes[min_index])
-            boxes[min_index].classList.remove('compared');
+         // expecting a blinking effect whenever a swap happens
+        boxes[j+1].style.height = `${key}px`;
+        
 
         await util.randomDelay(500*speedFactor);
     }
