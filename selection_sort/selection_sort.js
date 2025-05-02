@@ -50,11 +50,10 @@ export async function selectionSort(signal){
                 box.style.transition = `height ${500*speedFactor}ms ease`;
             });
 
-            // if(boxes[j]){
-                boxes[j].classList.add('compared');
-                await util.randomDelay(500*speedFactor);
-                neighbourNum.textContent = parseInt(boxes[min_index].style.height);
-            // }
+            boxes[j].classList.add('compared');
+            await util.randomDelay(500*speedFactor);
+            neighbourNum.textContent = parseInt(boxes[j].style.height);
+            
             comparisons++;
             comparisonNum.textContent = comparisons;
 
