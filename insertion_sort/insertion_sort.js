@@ -29,6 +29,8 @@ export async function insertionSort(signal){
     for(let i = 1; i< heights.length; i++){
 
         if(signal.aborted){
+            swapNum.textContent = "";
+            comparisonNum.textContent = "";
             return;
         }
 
@@ -42,6 +44,9 @@ export async function insertionSort(signal){
         await util.randomDelay(500*speedFactor);
         boxes[i].classList.remove('current');
         
+        comparisons++;
+        comparisonNum.textContent = comparisons;
+        neighbourNum.textContent = `${parseInt(boxes[j+1].style.height)}, ${parseInt(boxes[j].style.height)}`
 
         while(j >=0 && parseInt(boxes[j].style.height) > key){
             speedFactor = checkSpeed();
@@ -50,6 +55,8 @@ export async function insertionSort(signal){
             });
             // detect RESET and abort the current execution
             if(signal.aborted){
+                swapNum.textContent = "";
+                comparisonNum.textContent = "";
                 return;
             }
             
