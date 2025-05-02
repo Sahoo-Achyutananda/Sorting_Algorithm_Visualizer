@@ -3,8 +3,6 @@ import * as util from "../utils/utils.js" ;
 function checkSpeed(){
     let speed = document.querySelector("#speed_slider").value;
     let speedFactor = 1/speed ;
-    // let transitionDuration = 500 * speedFactor;
-
     return speedFactor;
 }
 
@@ -19,19 +17,18 @@ export async function selectionSort(signal){
 
     let swaps = 0;
     let comparisons = 0;
+
     let currentNum = document.getElementById("current_num");
     let neighbourNum = document.getElementById("adjacent_num");
+    let minNum = document.getElementById("minimum_num");
     let swapNum = document.getElementById("swap_num");
     let comparisonNum = document.getElementById("comparison_num");
+
     let startBtn = document.querySelector(".start");
     
     for(let i = 0;i< heights.length -1; i++){
 
         if(signal.aborted){
-            neighbourNum.textContent = "";
-            currentNum.textContent = "";
-            startBtn.disabled = false;
-            console.log("Hello from the funx 1", signal.aborted);
             break;
         }
 
@@ -46,10 +43,6 @@ export async function selectionSort(signal){
             speedFactor = checkSpeed();
             // detect RESET and abort the current execution
             if(signal.aborted){
-                neighbourNum.textContent = "";
-                currentNum.textContent = "";
-                startBtn.disabled = false;
-                console.log("Hello from the funx 2", signal.aborted);
                 break;
             }
 
@@ -72,21 +65,25 @@ export async function selectionSort(signal){
                         x.classList.remove('min_element');
                     });
                 }
-
                 min_index = j;
+                minNum.textContent = parseInt(window.getComputedStyle(boxes[min_index]).height);
                 boxes[min_index].classList.add('min_element');
             }
-
             boxes[j].classList.remove('compared');
         }
-
-        // boxes[min_index].classList.remove('min_element');
+    
         boxes[i].classList.add('swap');
         boxes[min_index].classList.add('swap');
+
+        // the following line has to be here - not before add "swap" 
+        boxes[min_index].classList.remove('min_element');
+        minNum.textContent = "";
         
-        util.swapStyles(boxes[i],boxes[min_index]);
-        swaps++;
-        swapNum.textContent = swaps;
+        if(i != min_index){
+            util.swapStyles(boxes[i],boxes[min_index]);
+            swaps++;
+            swapNum.textContent = swaps;
+        }
 
         document.getElementById("swap_num").classList.add('swapped'); // expecting a blinking effect whenever a swap happens
         await util.randomDelay(500*speedFactor);

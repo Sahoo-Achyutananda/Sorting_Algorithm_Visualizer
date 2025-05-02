@@ -71,7 +71,7 @@
         /* height: 150px; */
         height: auto;
         width: 100vw;
-        background-color: rgba(54, 50, 63, 0.486);
+        /* background-color: rgba(54, 50, 63, 0.486); */
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -132,10 +132,15 @@
         appearance: none;
 
         border-radius: 15px;
+        border: solid 2px white;
     }
 
     .custom_slider::-webkit-slider-thumb{
-        border-radius: 10px;
+        border-radius: 15px;
+    }
+
+    .custom_slider::-moz-range-thumb{
+        border-radius: 15px;
     }
 
     .start, .reset {
