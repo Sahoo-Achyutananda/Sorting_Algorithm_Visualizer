@@ -71,18 +71,21 @@ startBtn.addEventListener("click", async ()=>{
     
     
     startBtn.disabled = "true";
+    swapNum.textContent = "";
+    comparisonNum.textContent = "";
+    minNum.textContent = "";
 
     controller = new AbortController();
     await selectionSort(controller.signal);
 
     document.getElementById("current_num").textContent = "";
     document.getElementById("adjacent_num").textContent = "";
-    swapNum.textContent = "";
-    comparisonNum.textContent = "";
-    minNum.textContent = "";
     // swapNum.textContent = "";
     // comparisonNum.textContent = "";
-
+    // minNum.textContent = "";
+    // swapNum.textContent = "";
+    // comparisonNum.textContent = "";
+    startBtn.disabled = false;
     // console.log("Done");
 })
 

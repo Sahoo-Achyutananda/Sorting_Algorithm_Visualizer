@@ -72,13 +72,17 @@ startBtn.addEventListener("click", async ()=>{
     // fillContainer(countText.value);
 
     startBtn.disabled = "true";
+    swapNum.textContent = "";
+    comparisonNum.textContent = "";
 
     controller = new AbortController();
     await bubbleSort(controller.signal);
 
     currentNum.textContent = "";
     neighbourNum.textContent = "";
-    comparisonNum.textContent = "";
+    // comparisonNum.textContent = "";
+
+    startBtn.disabled = false;
 })
 
 

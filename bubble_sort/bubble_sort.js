@@ -22,6 +22,8 @@ export async function bubbleSort(signal){
 
             // detect RESET and abort the current execution
             if(signal.aborted){
+                swapNum.textContent = "";
+                comparisonNum.textContent = "";
                 return;
             }
 

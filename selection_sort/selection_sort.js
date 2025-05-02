@@ -29,6 +29,9 @@ export async function selectionSort(signal){
     for(let i = 0;i< heights.length -1; i++){
 
         if(signal.aborted){
+            swapNum.textContent = "";
+            comparisonNum.textContent = "";
+            minNum.textContent = "";
             return;
         }
 
@@ -43,6 +46,9 @@ export async function selectionSort(signal){
             speedFactor = checkSpeed();
             // detect RESET and abort the current execution
             if(signal.aborted){
+                swapNum.textContent = "";
+                comparisonNum.textContent = "";
+                minNum.textContent = "";
                 return;
             }
 
