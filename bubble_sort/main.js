@@ -45,6 +45,9 @@ resetBtn.addEventListener("click",()=>{
 // updating slider value based on input value and viceversa
 countSlider.addEventListener("input", ()=>{
     countText.value = countSlider.value;
+    if(controller) {
+        controller.abort(); // stop the current sort
+    }
     clearContainer();
     fillContainer(countText.value);
 
