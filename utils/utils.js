@@ -5,6 +5,7 @@ let speedSlider = document.querySelector("#speed_slider");
 
 let currentNum = document.getElementById("current_num");
 let neighbourNum = document.getElementById("adjacent_num");
+let currentArray = document.getElementById("current_array");
 let swapNum = document.getElementById("swap_num");
 let comparisonNum = document.getElementById("comparison_num");
 
@@ -78,7 +79,10 @@ export function clearContainer(){
 
     if(currentNum)
         currentNum.textContent = "";
-    neighbourNum.textContent = "";
+    if(neighbourNum)
+        neighbourNum.textContent = "";
+    if(currentArray)
+        currentArray.textContent = "";
     swapNum.textContent = "";
     comparisonNum.textContent = "";
 
@@ -92,7 +96,10 @@ export function clearContainerWithIndex(){
 
     if(currentNum)
         currentNum.textContent = "";
-    neighbourNum.textContent = "";
+    if(neighbourNum)
+        neighbourNum.textContent = "";
+    if(currentArray)
+        currentArray.textContent = "";
     swapNum.textContent = "";
     comparisonNum.textContent = "";
 

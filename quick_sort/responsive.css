@@ -133,6 +133,16 @@
         border-radius: 5px;
     
     } 
+    #current_label,#pivot_label, #current_subarray_label {
+        font: 12px "Roboto", sans-serif;
+    }
+
+    span#current_num, span#current_subarray, span#pivot_element{
+       
+        color: white;
+        font:700 12px "Poppins", sans-serif;
+
+    }
 
     .custom_slider{
         -webkit-appearance: none;
@@ -163,6 +173,11 @@
         background-color: khaki;
         color: rgb(0, 0, 0);
     
+    }
+
+    
+    #swap_label, #comparison_label{
+        font:700 12px "Roboto", sans-serif;
     }
 }
 

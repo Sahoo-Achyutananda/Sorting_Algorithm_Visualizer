@@ -22,7 +22,7 @@ let resetBtn =document.querySelector(".reset");
 
 
 let currentNum = document.getElementById("current_num");
-let neighbourNum = document.getElementById("adjacent_num");
+let neighbourNum = document.getElementById("current_subarray");
 let swapNum = document.getElementById("swap_num");
 let comparisonNum = document.getElementById("comparison_num");
 let pivotNum = document.getElementById("pivot_element");
