@@ -214,7 +214,7 @@ body,html {
     background-color: rgba(26, 16, 36, 0.485);
 }
 
-.current_num, .adjacent_num {
+.current_num, .adjacent_num, .pivot_element {
     display: flex;
     flex-direction: column;
     width : 50%;
@@ -244,7 +244,7 @@ body,html {
     font: 15px "Roboto", sans-serif;
 }
 
-span#current_num, span#adjacent_num{
+span#current_num, span#adjacent_num, span#pivot_element{
     width : 80%;
     height: 40%;
     border-radius: 5px;
@@ -303,6 +303,10 @@ span#current_num{
 span#adjacent_num{
     background-color: rgba(34, 139, 34, 0.274);
 
+}
+
+span#pivot_element{
+    background-color: rgba(95, 95, 160, 0.421);
 }
 
 .title {

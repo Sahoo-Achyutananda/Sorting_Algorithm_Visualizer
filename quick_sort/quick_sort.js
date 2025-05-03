@@ -25,6 +25,7 @@ let currentNum = document.getElementById("current_num");
 let neighbourNum = document.getElementById("adjacent_num");
 let swapNum = document.getElementById("swap_num");
 let comparisonNum = document.getElementById("comparison_num");
+let pivotNum = document.getElementById("pivot_element");
 
 
 
@@ -41,13 +42,14 @@ function clearUp(){
         controller.abort(); // stop the current sort
     }
 
-    // currentNum.textContent = "";
+    currentNum.textContent = "";
     neighbourNum.textContent = "";
     swaps = 0;
     comparisons = 0;
     swapNum.textContent = "";
     comparisonNum.textContent = "";
     neighbourNum.textContent = "";
+    pivotNum.textContent = "";
 
     startBtn.disabled = false;
     countText.value = countSlider.value;
@@ -100,39 +102,52 @@ async function partition(signal,l, r) {
     util.updateTransitions(speedFactor);
 
     var boxes = document.querySelectorAll(".box");
-    // console.log(boxes);
     let pivot  = values[r];
-    boxes[r].classList.add('current');
     let i = l - 1;
 
     for(let j = l; j<=r-1;j++){
-        
+        let speedFactor = util.checkSpeed();
+        util.updateTransitions(speedFactor);
+        if(signal.aborted){
+            swapNum.textContent = "";
+            comparisonNum.textContent = "";
+            minNum.textContent = "";
+            return;
+        }
+
         comparisons++;
         comparisonNum.textContent = `${comparisons}`;
 
         await util.randomDelay(500*speedFactor);
-        // boxes[j].classList.add('compared');
-        // boxes[r].classList.add('compared');
+
+        boxes[j].classList.add('compared');
         if(values[j]<pivot){
             i++;
+            
             await util.randomDelay(500*speedFactor);
 
-            // boxes[i].classList.add('swap');
-            // boxes[j].classList.add('swap');
-            util.swapStyles(boxes[i],boxes[j]);
-            swap(values,i,j);
-
-            await util.randomDelay(500*speedFactor);
-            swaps++;
-            swapNum.textContent = `${swaps}`;
-            // boxes[i].classList.remove('swap');
-            // boxes[j].classList.remove('swap');
+            
+            if(i!=j){
+                boxes[i].classList.add('swap');
+                boxes[j].classList.add('swap');
+                util.swapStyles(boxes[i],boxes[j]);
+                swap(values,i,j);
+                // console.log("swapping :", values[i],values[j]);
+                swaps++;
+                swapNum.textContent = `${swaps}`;
+                swapNum.classList.add('swapped');
+                await util.randomDelay(500*speedFactor);
+                swapNum.classList.remove('swapped');
+                
+                boxes[i].classList.remove('swap');
+                boxes[j].classList.remove('swap');
+            }
+            
         }
-        // boxes[j].classList.remove('compared');
-        // boxes[r].classList.remove('compared');
+        await util.randomDelay(500*speedFactor);
+        boxes[j].classList.remove('compared');
     }
 
-    boxes[r].classList.remove("current");
 
     await util.randomDelay(500*speedFactor);
     util.swapStyles(boxes[i+1],boxes[r]);
@@ -166,18 +181,19 @@ export async function quickSort(signal, left, right) {
   if (left >= right) return;
   
   for(let i = left; i<right;i++){
-    boxes[i].classList.add('compared');
+    boxes[i].classList.add('current_array');
   }
   boxes[right].classList.add('current');
+  currentNum.textContent = `${values[right]}`;
+
   const pi = await partition(signal,left,right);
   
-  currentNum.textContent = `${pi}`;
+  pivotNum.textContent = `${pi}`;
 
   for(let i = left; i<right;i++){
-    boxes[i].classList.remove('compared');
+    boxes[i].classList.remove('current_array');
   }
   boxes[right].classList.remove('current');
-//   boxes[pi].classList.remove('current');
   await quickSort(signal, left, pi-1);
   await quickSort(signal, pi + 1, right);
 }
@@ -200,6 +216,8 @@ startBtn.addEventListener("click", async () => {
       console.log("Sorting stopped:", error);
     } finally {
         neighbourNum.textContent = "";
-      startBtn.disabled = false;
+        currentNum.textContent = "";
+        pivotNum.textContent = "";
+        startBtn.disabled = false;
     }
   });

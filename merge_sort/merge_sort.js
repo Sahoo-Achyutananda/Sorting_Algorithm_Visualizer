@@ -113,40 +113,21 @@ async function merge(signal,l, m, r) {
     while (i < L.length && j < R.length) {
         comparisons++;
         comparisonNum.textContent = comparisons;
-        
-        // Highlighting elements being compared (from left and right subarrays)
-        // const leftIndex = l + i;
-        // const rightIndex = m + 1 + j;
-        // boxes[leftIndex].classList.add('compared');
-        // boxes[rightIndex].classList.add('compared');
 
         await util.randomDelay(500*speedFactor);
-        
-        // boxes[i].classList.add('compared');
-        // boxes[j].classList.add('compared');
+
         if (L[i] <= R[j]) {
-            // boxes[k].classList.add('swap');
-            // boxes[i].classList.add('swap');  
             values[k] = L[i];
             boxes[k].style.height = `${L[i]}px`;
-            // boxes[i].classList.remove('swap');  
-            // boxes[k].classList.remove('swap');
             i++;
         } else {
-            // boxes[k].classList.add('swap');
-            // boxes[j].classList.add('swap'); 
             values[k] = R[j];
             boxes[k].style.height = `${R[j]}px`;
-            // boxes[k].classList.remove('swap');
-            // boxes[j].classList.add('swap'); 
             j++;
             swaps++;
             swapNum.textContent = swaps;
         }
         k++;
-        // Remove comparison highlights
-        // boxes[i].classList.remove('compared');
-        // boxes[j].classList.remove('compared');
     }
     
 

@@ -33,18 +33,23 @@
 }
 
 .current {
-    background: linear-gradient(rgba(220, 20, 60, 0.362),crimson);
+    background: linear-gradient(rgba(220, 20, 60, 0.362),crimson) !important;
 }
 
-.compared {
-    background: linear-gradient(rgba(34, 139, 34, 0.444), forestgreen);
+.current_array {
+    background: linear-gradient(rgba(34, 139, 34, 0.444), forestgreen) !important;
 }
 
 .swap {
-    background: linear-gradient(rgba(128, 0, 128, 0.367) , purple);
+    background: linear-gradient(rgba(128, 0, 128, 0.367) , purple) !important;
+    /* background: linear-gradient(rgba(255, 255, 0, 0.479) , yellow) !important; */
 }
 
 .swapped {
     background-color: purple !important;
     color:white !important;
+}
+
+.compared {
+    background: linear-gradient(rgba(0, 191, 255, 0.322), deepskyblue) !important;
 }
