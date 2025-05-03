@@ -47,6 +47,33 @@ export function fillContainer(value = 20){
     // speedSlider.value = "1" ;
 }
 
+export function fillContainerWithIndex(value = 20){
+    countSlider.value = value;
+    countText.value = value;
+
+    for(let i = 0; i <value; i++){
+        let main_div = document.createElement('div');
+        let box = document.createElement('div');
+        let index = document.createElement('span');
+
+        main_div.classList.add('main_div');
+        
+        main_div.appendChild(index);
+        main_div.appendChild(box);
+
+        box.classList.add("box");
+        index.classList.add('index');
+        index.textContent = `${i}` ;
+
+        box.style.width = `${(parseInt(window.getComputedStyle(mainBox).width)/value -2)}px`;
+        index.style.width = `${(parseInt(window.getComputedStyle(mainBox).width)/value -2)}px`;
+
+        box.style.height = getRandomHeight();
+
+        mainBox.appendChild(main_div);
+    }
+}
+
 export function clearContainer(){
 
     if(currentNum)
@@ -56,6 +83,20 @@ export function clearContainer(){
     comparisonNum.textContent = "";
 
     let boxes = document.querySelectorAll(".box");
+    boxes.forEach((box)=>{
+        mainBox.removeChild(box);
+    })
+}
+
+export function clearContainerWithIndex(){
+
+    if(currentNum)
+        currentNum.textContent = "";
+    neighbourNum.textContent = "";
+    swapNum.textContent = "";
+    comparisonNum.textContent = "";
+
+    let boxes = document.querySelectorAll(".main_div");
     boxes.forEach((box)=>{
         mainBox.removeChild(box);
     })

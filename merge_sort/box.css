@@ -1,3 +1,11 @@
+.main_div{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: auto;
+    width:auto;
+}
+
 .box {
     background: linear-gradient(rgb(86, 8, 164), rgba(255, 255, 255, 0.021));
     /* background-color: blueviolet; */
@@ -7,6 +15,21 @@
     margin-right: 2px;
 
     /* transition: height 0.5s ease; */
+}
+
+.index {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    margin-bottom: 2px;
+    font-size:0.8rem;
+    font-weight: 600;
+    background-color: khaki;
+    color: black;
+
 }
 
 .current {

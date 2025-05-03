@@ -32,7 +32,7 @@ let controller = null;
 
 window.onload = function(){
 
-    fillContainer(); // affects only when the page is loaded for the first time , for reloads it doesnt work
+    util.fillContainerWithIndex(); // affects only when the page is loaded for the first time , for reloads it doesnt work
 }
 
 function clearUp(){
@@ -51,8 +51,8 @@ function clearUp(){
 
     startBtn.disabled = false;
     countText.value = countSlider.value;
-    clearContainer();
-    fillContainer(countText.value);
+    util.clearContainerWithIndex();
+    util.fillContainerWithIndex(countText.value);
 
 }
 
@@ -84,7 +84,7 @@ speedValue.addEventListener("input", ()=>{
 window.addEventListener('load', () => {
     if (performance.getEntriesByType('navigation') === 'reload') {
         // Reload detected
-        fillContainer(); 
+        util.fillContainerWithIndex(); 
     
     }
 });
