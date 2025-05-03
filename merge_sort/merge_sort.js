@@ -1,12 +1,13 @@
 import * as util from "../utils/utils.js";
+import { fillContainer, clearContainer, initializeValues, getRandomHeight, sayHello } from "../utils/utils.js";
 
-let values = []; // This should be at the top of your mergeSort.js file
+
+let values = [];
 let speedFactor = 500;
 let swaps = 0;
 let comparisons = 0;
 let startBtn = document.querySelector(".start");
 
-import { fillContainer, clearContainer, initializeValues, getRandomHeight, sayHello } from "../utils/utils.js";
 // import {mergeSort} from "./merge_sort.js";
 
 let mainBox = document.querySelector(".main_box");
