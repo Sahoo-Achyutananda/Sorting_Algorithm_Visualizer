@@ -6,7 +6,13 @@ I learned a few new things -
 
     sessionStorage:The sessionStorage API is a browser-based storage mechanism that allows you to store key-value pairs for a specific session. This means that the data stored in sessionStorage is only available while the browser tab or window is open, and it's cleared when the tab or window is closed. 
     It's designed for temporary data that needs to be accessible during a user's browsing session
+4. Buttons and links 
+-> for webpages on the internet use onclick = "window.location.href = 'https:// ........'"
+-> for local use : onclick = "location.href = './......./........html'"
 
+if we want to open a webpage of internet in a new tab - use window.open(URL, '_BLANK')
+
+window.open('https://example.com', '_blank');
 
 
 
