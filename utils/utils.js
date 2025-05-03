@@ -49,7 +49,8 @@ export function fillContainer(value = 20){
 
 export function clearContainer(){
 
-    currentNum.textContent = "";
+    if(currentNum)
+        currentNum.textContent = "";
     neighbourNum.textContent = "";
     swapNum.textContent = "";
     comparisonNum.textContent = "";
@@ -69,4 +70,19 @@ export function swapStyles(div1,div2){
     let temp = div1.style.height;
     div1.style.height = `${parseInt(div2.style.height)}px`;
     div2.style.height = temp;
+}
+
+export function checkSpeed(){
+    let speed = document.querySelector("#speed_slider").value;
+    let speedFactor = 1/speed ;
+    return speedFactor;
+}
+
+export function updateTransitions(speedFactor){
+    const boxes = document.querySelectorAll(".box");
+    const transitionTime = 500*speedFactor;
+
+    boxes.forEach((box)=>{
+        box.style.transition = `height ${transitionTime}ms ease, background-color ${transitionTime}ms linear`;
+    })
 }

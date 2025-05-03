@@ -26,11 +26,7 @@ let neighbourNum = document.getElementById("adjacent_num");
 let swapNum = document.getElementById("swap_num");
 let comparisonNum = document.getElementById("comparison_num");
 
-function checkSpeed(){
-    let speed = document.querySelector("#speed_slider").value;
-    let speedFactor = 1/speed ;
-    return speedFactor;
-}
+
 
 let controller = null;
 
@@ -45,10 +41,13 @@ function clearUp(){
         controller.abort(); // stop the current sort
     }
 
-    currentNum.textContent = "";
+    // currentNum.textContent = "";
     neighbourNum.textContent = "";
+    swaps = 0;
+    comparisons = 0;
     swapNum.textContent = "";
     comparisonNum.textContent = "";
+    neighbourNum.textContent = "";
 
     startBtn.disabled = false;
     countText.value = countSlider.value;
@@ -97,71 +96,94 @@ async function merge(signal,l, m, r) {
         minNum.textContent = "";
         return;
     }
-    let speedFactor = checkSpeed();
+    let speedFactor = util.checkSpeed();
+    util.updateTransitions(speedFactor);
 
-  const boxes = document.querySelectorAll(".box");
-  const L = values.slice(l, m + 1);
-  const R = values.slice(m + 1, r + 1);
+    const boxes = document.querySelectorAll(".box");
+    const L = values.slice(l, m + 1);
+    const R = values.slice(m + 1, r + 1);
 
-  let i = 0, j = 0, k = l;
+    let i = 0, j = 0, k = l;
 
-  while (i < L.length && j < R.length) {
-    comparisons++;
-    comparisonNum.textContent = comparisons;
-    
-    // Highlighting elements being compared (from left and right subarrays)
-    const leftIndex = l + i;
-    const rightIndex = m + 1 + j;
-    boxes[leftIndex].classList.add('compared');
-    boxes[rightIndex].classList.add('compared');
-
-    await util.randomDelay(500*speedFactor);
-    
-    if (L[i] <= R[j]) {
-      boxes[k].classList.add('swap');  
-      values[k] = L[i];
-      boxes[k].style.height = `${L[i]}px`;
-      boxes[k].classList.remove('swap');
-      i++;
-    } else {
-      boxes[k].classList.add('swap');
-      values[k] = R[j];
-      boxes[k].style.height = `${R[j]}px`;
-      boxes[k].classList.remove('swap');
-      j++;
-      swaps++;
-      swapNum.textContent = swaps;
+    for(let i = l; i<= r; i++){
+        boxes[i].classList.add('compared');
     }
-    k++;
-    // Remove comparison highlights
-  boxes[leftIndex].classList.remove('compared');
-  boxes[rightIndex].classList.remove('compared');
-  }
-  
+    neighbourNum.textContent = `index[${l}, ${r}]`;
 
-  while (i < L.length) {
-    boxes[k].classList.add('swap');
-    values[k] = L[i];
-    boxes[k].style.height = `${L[i]}px`;
-    await util.randomDelay(500*speedFactor);
-    boxes[k].classList.remove('swap');
-    i++;
-    k++;
-  }
+    while (i < L.length && j < R.length) {
+        comparisons++;
+        comparisonNum.textContent = comparisons;
+        
+        // Highlighting elements being compared (from left and right subarrays)
+        // const leftIndex = l + i;
+        // const rightIndex = m + 1 + j;
+        // boxes[leftIndex].classList.add('compared');
+        // boxes[rightIndex].classList.add('compared');
 
-  while (j < R.length) {
-    boxes[k].classList.add('swap');
-    values[k] = R[j];
-    boxes[k].style.height = `${R[j]}px`;
-    await util.randomDelay(500*speedFactor);
-    boxes[k].classList.remove('swap');
-    j++;
-    k++;
-  }
+        await util.randomDelay(500*speedFactor);
+        
+        // boxes[i].classList.add('compared');
+        // boxes[j].classList.add('compared');
+        if (L[i] <= R[j]) {
+            // boxes[k].classList.add('swap');
+            // boxes[i].classList.add('swap');  
+            values[k] = L[i];
+            boxes[k].style.height = `${L[i]}px`;
+            // boxes[i].classList.remove('swap');  
+            // boxes[k].classList.remove('swap');
+            i++;
+        } else {
+            // boxes[k].classList.add('swap');
+            // boxes[j].classList.add('swap'); 
+            values[k] = R[j];
+            boxes[k].style.height = `${R[j]}px`;
+            // boxes[k].classList.remove('swap');
+            // boxes[j].classList.add('swap'); 
+            j++;
+            swaps++;
+            swapNum.textContent = swaps;
+        }
+        k++;
+        // Remove comparison highlights
+        // boxes[i].classList.remove('compared');
+        // boxes[j].classList.remove('compared');
+    }
+    
+
+    while (i < L.length) {
+        // boxes[k].classList.add('swap');
+        values[k] = L[i];
+        boxes[k].style.height = `${L[i]}px`;
+        await util.randomDelay(500*speedFactor);
+        // boxes[k].classList.remove('swap');
+        i++;
+        k++;
+    }
+
+    while (j < R.length) {
+        // boxes[k].classList.add('swap');
+        values[k] = R[j];
+        boxes[k].style.height = `${R[j]}px`;
+        await util.randomDelay(500*speedFactor);
+        // boxes[k].classList.remove('swap');
+        j++;
+        k++;
+    }
+
+    for(let i = l; i<= r; i++){
+        boxes[i].classList.remove('compared');
+    }
 }
 
 export async function mergeSort(signal, left, right) {
-  if (signal.aborted || left >= right) return;
+    if(signal.aborted){
+        neighbourNum.textContent = "";
+        swapNum.textContent = "";
+        comparisonNum.textContent = "";
+        minNum.textContent = "";
+        return;
+    }
+  if (left >= right) return;
   
   const mid = left + Math.floor((right - left) / 2);
   await mergeSort(signal, left, mid);
@@ -173,6 +195,9 @@ startBtn.addEventListener("click", async () => {
     startBtn.disabled = true;
     swapNum.textContent = "0";
     comparisonNum.textContent = "0";
+    neighbourNum.textContent = "";
+    swaps = 0;
+    comparisons = 0;
     
     values = util.initializeValues();
     
@@ -183,6 +208,7 @@ startBtn.addEventListener("click", async () => {
     } catch (error) {
       console.log("Sorting stopped:", error);
     } finally {
+        neighbourNum.textContent = "";
       startBtn.disabled = false;
     }
   });
