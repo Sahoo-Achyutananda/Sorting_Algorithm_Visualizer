@@ -9,7 +9,7 @@
     padding : 0px;
     overflow: auto;
     font-family :"Roboto",sans-serif ;
-    color: antiquewhite;
+    color: rgb(255, 255, 255);
 
     overflow-x: hidden;
 }
