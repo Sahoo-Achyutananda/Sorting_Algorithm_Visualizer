@@ -5,7 +5,7 @@
         width: 70vw;
         height: auto;
         margin: 20px;
-        border-radius: 10px;
+        /* border-radius: 10px; */
         background-color: rgba(36, 32, 46, 0.527);
     
         display: flex;
