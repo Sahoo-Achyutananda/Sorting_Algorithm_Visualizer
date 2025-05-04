@@ -14,6 +14,8 @@ if we want to open a webpage of internet in a new tab - use window.open(URL, '_B
 
 window.open('https://example.com', '_blank');
 
+5. Nodelists and Arrays are not the same ... .querySelectorAll returns a Nodelist and not an array
+6. CSS cannot animate the display property — display is not animatable.
 
 
 

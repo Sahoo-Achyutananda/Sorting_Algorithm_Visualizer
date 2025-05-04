@@ -1,0 +1,106 @@
+@media (max-width:850px){
+    code {
+        font-size: 0.8rem;
+    }
+}
+
+
+@media (max-width: 750px){
+    
+    body{
+        background-color: rgb(20, 19, 29);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .accordian{
+        height:auto;
+        /* padding:40px;
+        background-color: rgba(112, 38, 182, 0.103);*/
+        width: auto;
+        margin:10px;
+    
+        color: white;
+        border-radius: 5px;
+        border: solid 2px;
+    }
+    
+    .title{
+        font: 500 18px "Poppins", sans-serif;
+        padding: 40px;
+        border: 2px white;
+        height:auto;
+        width : 80vw;
+    
+        display: flex;
+        flex-direction: row;
+    
+        position: relative;
+    }
+    
+    .title:hover{
+        background-color: rgba(213, 220, 224, 0.212);
+    }
+    
+    .description{
+        font: 13px "Roboto", sans-serif;
+        padding: 40px;
+        background-color: rgba(78, 62, 94, 0.24);
+        line-height: 200%;
+        width: 80vw;
+    }
+    
+    
+    ol{
+        
+        margin-left: 60px;
+    }
+    
+    .closed{
+        display: none;
+    }
+    
+    .expand{
+        position: absolute;
+        right: 10px;
+        transform: rotate(-90deg);
+    }
+    
+    code {
+        font-size: 0.5rem;
+    }
+    
+    h3 {
+        text-decoration: underline;
+      }
+    
+}
+
+@media (max-width: 501px){
+    .title{
+        font: 500 18px "Poppins", sans-serif;
+        padding: 40px;
+        border: 2px white;
+        height:auto;
+        width : 70vw;
+    
+        display: flex;
+        flex-direction: row;
+    
+        position: relative;
+    }
+    
+    .title:hover{
+        background-color: rgba(213, 220, 224, 0.212);
+    }
+    
+    .description{
+        font: 13px "Roboto", sans-serif;
+        padding: 40px;
+        background-color: rgba(78, 62, 94, 0.24);
+        line-height: 200%;
+        width: 70vw;
+    }
+}

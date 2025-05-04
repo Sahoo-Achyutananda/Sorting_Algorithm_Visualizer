@@ -53,6 +53,41 @@
     flex-direction: row;
 }
 
+
+.notification{
+    width: 70%;
+    height: auto;
+    margin: 20px;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    background-color: rgba(255, 183, 48, 0.867);
+    /* background:linear-gradient(to right,rgb(255, 255, 91),rgba(255, 255, 19, 0.877)); */
+    
+}
+
+span#notes{
+    padding-inline: 20px;
+    font: 600 16px "Roboto", sans-serif;
+    color: rgb(255, 255, 255);
+}
+
+svg#announcement{
+    fill:rgb(255, 255, 255);
+    padding-inline: 20px;
+}
+
+/* button#notes{
+    padding-inline: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+} */
+
 .main {
     width: 75%;
     height: auto;

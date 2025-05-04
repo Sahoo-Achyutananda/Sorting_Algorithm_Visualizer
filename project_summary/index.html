@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Summary</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+  <div class="main">
+    <div class = "accordian" id="overview">
+        <div class="title">Project Overview
+            <div class="expand">
+                <!-- <img width= "25" src="/resource/caret-left-square-fill.svg" alt="Expand"> -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-caret-left-square-fill" viewBox="0 0 16 16">
+                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm10.5 10V4a.5.5 0 0 0-.832-.374l-4.5 4a.5.5 0 0 0 0 .748l4.5 4A.5.5 0 0 0 10.5 12"/>
+                </svg>
+            </div>
+        </div>
+        <div class="description">
+            The Sorting Visualizer is a web application that visually demonstrates how common sorting algorithms operate on an array of numbers. The user can:
+            <ol>
+                <li>Generate a new random array.</li>
+                <li>Change the array size using a slider.</li>
+                <li>Adjust the speed of the animation.</li>
+                <li>Visualize different sorting algorithms step-by-step.</li>
+            </ol>
+            The goal of this project was to solidify algorithmic thinking, learn DOM manipulation, and understand asynchronous behavior in JavaScript.
+        </div>
+    </div>
+    <div class = "accordian" id="technology">
+        <div class="title">Technology Used
+            <div class="expand">
+                <!-- <img width= "25" src="/resource/caret-left-square-fill.svg" alt="Expand"> -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-caret-left-square-fill" viewBox="0 0 16 16">
+                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm10.5 10V4a.5.5 0 0 0-.832-.374l-4.5 4a.5.5 0 0 0 0 .748l4.5 4A.5.5 0 0 0 10.5 12"/>
+                </svg>
+            </div>
+        </div>
+        <div class="description">
+            HTML,CSS and JavaScript - nothing else, not even Bootstrap or Tailwind CSS.
+        </div>
+    </div>
+    <div class = "accordian" id="learning">
+        <div class="title">What I Learned ? 👀
+            <div class="expand">
+                <!-- <img width= "25" src="/resource/caret-left-square-fill.svg" alt="Expand"> -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-caret-left-square-fill" viewBox="0 0 16 16">
+                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm10.5 10V4a.5.5 0 0 0-.832-.374l-4.5 4a.5.5 0 0 0 0 .748l4.5 4A.5.5 0 0 0 10.5 12"/>
+                </svg>
+            </div>
+        </div>
+        <div class="description">
+
+    <h3>1. AbortController()</h3>
+
+    Discovered how to use AbortController to cancel ongoing asynchronous operations (e.g., stopping sorting when user resets or changes array size).
+
+    <h3>2. window.onload vs. Reload</h3>
+
+    Learned that window.onload triggers only when the page is fully loaded for the first time.
+
+    On reload, it may not work as expected unless combined with the performance API: </br>
+        <div class="code">
+            <pre><code>
+window.addEventListener('load', () => {
+    if (performance.getEntriesByType('navigation')[0].type === 'reload') {
+        fillContainer();
+    }
+});
+</code></pre>
+        </div>
+
+        <h3>3. sessionStorage vs. localStorage</h3>
+
+    ->  Session Storage stores data per session (cleared when the tab is closed).</br>
+
+    -> localStorage persists even after browser or tab is closed.</br>
+
+    -> Great for temporarily keeping track of page state.</br>
+
+    <h3>4. Buttons and Links Navigation</h3>
+
+    <h4>🔴 For external sites:</h4>
+    onclick = "window.location.href = 'https://example.com'"</br>
+
+    <h4>🔴 For local navigation (within the same project):</h4>
+    onclick = "location.href = './folder/file.html'"</br>
+
+    <h4>🔴 To open in a new tab:</h4>
+    window.open('https://example.com', '_blank');</br>
+
+
+    <h3>5. NodeLists vs. Arrays</h3>
+
+    querySelectorAll() returns a NodeList, not a regular array.</br>
+
+    Use Array.from() or spread ([...]) to convert if array methods are needed.
+
+    <h3>6. CSS Limitation: display is not animatable</h3>
+
+    Instead of trying to animate display, animate height, opacity, or max-height.
+    
+
+
+
+
+        </div>
+    </div>
+    <div class = "accordian" id="challenges">
+        <div class="title">Challenges Encountered 😓
+            <div class="expand">
+                <!-- <img width= "25" src="/resource/caret-left-square-fill.svg" alt="Expand"> -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-caret-left-square-fill" viewBox="0 0 16 16">
+                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm10.5 10V4a.5.5 0 0 0-.832-.374l-4.5 4a.5.5 0 0 0 0 .748l4.5 4A.5.5 0 0 0 10.5 12"/>
+                </svg>
+            </div>
+        </div>
+        <div class="description">
+            <h3>1. Transition Duration Breaking Sort Animation</h3>
+
+            Initially had a fixed CSS transition that didn’t sync with speed controls.<br>
+            Solved it by dynamically updating transition based on user-set speed:<br>
+                <pre><code>element.style.transition = `height ${speed}s ease`;</code></pre>
+
+            <h3>2. Debugging Merge Sort Issues</h3>
+
+    DOM-based height values were being read in real-time, causing partially updated subarrays to interfere with recursive logic.</br>
+
+    Learned that you should never rely on changing DOM values during recursion—work only on your own array copy.</br>
+        </div>
+    </div>
+    <div class = "accordian" id="future_scope">
+        <div class="title">Future Scope 🚀
+            <div class="expand">
+                <!-- <img width= "25" src="/resource/caret-left-square-fill.svg" alt="Expand"> -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-caret-left-square-fill" viewBox="0 0 16 16">
+                    <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm10.5 10V4a.5.5 0 0 0-.832-.374l-4.5 4a.5.5 0 0 0 0 .748l4.5 4A.5.5 0 0 0 10.5 12"/>
+                </svg>
+            </div>
+        </div>
+        <div class="description">
+            <h3>1. Add More Sorting Algorithms</h3>
+Include algorithms like Radix Sort, Bucket Sort, and Counting Sort to expand learning and functionality.<br><br>
+
+<h3>2. Algorithm Comparison  - Race Mode 🏃‍♂️</h3>
+Allow users to visualize two algorithms running side by side on the same input to compare speed and efficiency.<br><br>
+
+<h3>3. Pause and Resume Functionality</h3>
+Give users control over the animation – pause mid-execution and resume from the same step.<br><br>
+
+<h3>4. Responsive Design Enhancement</h3>
+Make box widths and font sizes adjust more fluidly in real-time on screen resize (without needing a reset).<br><br>
+
+<h3>5. Custom Array Input</h3>
+Allow users to input their own array manually for sorting.<br><br>
+
+<h3>6. Dark Mode / Theme Toggle</h3>
+Enhance UI/UX by providing light/dark mode or colorful themes.<br><br>
+
+<h3>7. Detailed Explanation Mode</h3>
+Highlight the logic behind every step during sorting to help beginners understand the algorithm flow.<br><br>
+
+<h3>8. Save and Replay</h3>
+Record a session and allow replaying it later for review or sharing.<br><br>
+
+        </div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

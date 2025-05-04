@@ -1,0 +1,85 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+body{
+    background-color: rgb(20, 19, 29);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.accordian{
+    height:auto;
+    /* padding:40px;
+    background-color: rgba(112, 38, 182, 0.103);*/
+    width: auto;
+    margin:40px;
+
+    color: white;
+    border-radius: 5px;
+    border: solid 2px;
+}
+
+.title{
+    font: 500 30px "Poppins", sans-serif;
+    padding: 40px;
+    border: 2px white;
+    height:auto;
+    width :80vw;
+
+    display: flex;
+    flex-direction: row;
+
+    position: relative;
+}
+
+.title:hover{
+    background-color: rgba(213, 220, 224, 0.212);
+}
+
+.description{
+    font: 17px "Roboto", sans-serif;
+    padding: 40px;
+    background-color: rgba(78, 62, 94, 0.24);
+    line-height: 200%;
+    width: 80vw;
+}
+
+
+ol{
+    
+    margin-left: 60px;
+}
+
+.closed{
+    display: none;
+}
+
+.expand{
+    position: absolute;
+    right: 40px;
+    transform: rotate(-90deg);
+}
+
+
+h3 {
+    text-decoration: underline;
+  }
+
+  /* mark {
+    margin: 0 -0.4em;
+    padding: 0.1em 0.4em;
+    border-radius: 0.8em 0.3em;
+    background: transparent;
+    background-image: linear-gradient(
+      to right,
+      rgba(255, 225, 0, 0.377),
+      rgba(255, 225, 0, 0.966) 4%,
+      rgba(255, 225, 0, 0.596)
+    );
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  } */
