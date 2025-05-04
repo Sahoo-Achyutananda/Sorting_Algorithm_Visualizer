@@ -16,7 +16,8 @@ window.open('https://example.com', '_blank');
 
 5. Nodelists and Arrays are not the same ... .querySelectorAll returns a Nodelist and not an array
 6. CSS cannot animate the display property — display is not animatable.
-
+7. toggle in classList.
+8. concepts of z-index - while making the side bar
 
 
 CHALLENGES FACED - 
