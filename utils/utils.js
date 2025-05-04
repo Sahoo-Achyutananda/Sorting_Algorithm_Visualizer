@@ -68,6 +68,7 @@ export function fillContainerWithIndex(value = 20){
 
         box.style.width = `${(parseInt(window.getComputedStyle(mainBox).width)/value -2)}px`;
         index.style.width = `${(parseInt(window.getComputedStyle(mainBox).width)/value -2)}px`;
+        // index.style.width = "100%";
 
         box.style.height = getRandomHeight();
 

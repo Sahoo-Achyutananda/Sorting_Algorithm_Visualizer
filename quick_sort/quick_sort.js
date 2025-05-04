@@ -95,7 +95,7 @@ async function partition(signal,l, r) {
     if(signal.aborted){
         swapNum.textContent = "";
         comparisonNum.textContent = "";
-        minNum.textContent = "";
+        // minNum.textContent = "";
         return;
     }
     let speedFactor = util.checkSpeed();
@@ -111,7 +111,7 @@ async function partition(signal,l, r) {
         if(signal.aborted){
             swapNum.textContent = "";
             comparisonNum.textContent = "";
-            minNum.textContent = "";
+            // minNum.textContent = "";
             return;
         }
 
@@ -151,6 +151,7 @@ async function partition(signal,l, r) {
 
     await util.randomDelay(500*speedFactor);
     util.swapStyles(boxes[i+1],boxes[r]);
+    
     swap(values,i+1,r);
     swaps++;
 
@@ -175,7 +176,7 @@ export async function quickSort(signal, left, right) {
         neighbourNum.textContent = "";
         swapNum.textContent = "";
         comparisonNum.textContent = "";
-        minNum.textContent = "";
+        // minNum.textContent = "";
         return;
     }
   if (left >= right) return;
@@ -184,6 +185,8 @@ export async function quickSort(signal, left, right) {
     boxes[i].classList.add('current_array');
   }
   boxes[right].classList.add('current');
+  drawReferenceLine(boxes[right]);
+
   currentNum.textContent = `${values[right]}`;
 
   const pi = await partition(signal,left,right);
@@ -194,6 +197,8 @@ export async function quickSort(signal, left, right) {
     boxes[i].classList.remove('current_array');
   }
   boxes[right].classList.remove('current');
+  removeReferenceLine();
+
   await quickSort(signal, left, pi-1);
   await quickSort(signal, pi + 1, right);
 }
@@ -221,3 +226,27 @@ startBtn.addEventListener("click", async () => {
         startBtn.disabled = false;
     }
   });
+
+
+  function drawReferenceLine(div){
+    let rect = div.getBoundingClientRect();
+    let mainRect = mainBox.getBoundingClientRect(); // mainBox's position in viewport
+
+    let offsetTop = rect.bottom - mainRect.top; // position relative to mainBox
+
+    let line = document.createElement('div');
+    line.classList.add('reference_line');
+    line.style.position = 'absolute';
+    line.style.top = `${offsetTop + 1}px`;
+    line.style.left = '0';
+    line.style.width = '100%';
+
+    mainBox.appendChild(line);
+}
+
+function removeReferenceLine(){
+    let line = document.querySelector('.reference_line');
+    if (line && line.parentNode) {
+        line.parentNode.removeChild(line);
+    }
+}

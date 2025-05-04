@@ -175,6 +175,8 @@ body,html {
     display: flex;
     flex-direction: row;
     align-items:start;
+
+    position: relative; /*This was added for drawing the reference line*/
 }
 
 .clue {
