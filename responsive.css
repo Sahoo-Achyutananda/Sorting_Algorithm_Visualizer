@@ -126,7 +126,7 @@
     }
 
     .notification{
-        width: 90vw;
+        width: 85vw;
         height: auto;
         margin: 10px;
         padding: 10px;
@@ -136,7 +136,7 @@
     
     span#notes{
         padding-inline: 15px;
-        font: 600 15px "Roboto", sans-serif;
+        font: 600 14px "Roboto", sans-serif;
         color: rgb(255, 255, 255);
     }
     
@@ -194,10 +194,9 @@
 
 @media(max-width:525px){
     .notification{
-        width: 90vw;
+        width: 85vw;
         height: auto;
-        margin: 10px;
-        padding: 10px;
+        margin-top: 20px;
         /* background:linear-gradient(to right,rgb(255, 255, 91),rgba(255, 255, 19, 0.877)); */
         
     }
