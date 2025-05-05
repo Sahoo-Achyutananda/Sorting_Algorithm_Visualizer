@@ -53,7 +53,7 @@ countSlider.addEventListener("input", ()=>{
 })
 
 countText.addEventListener("input", ()=>{
-    countText.value = countSlider.value;
+    countSlider.value = countText.value;
     clearUp();
 })
 

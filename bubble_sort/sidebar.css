@@ -36,10 +36,13 @@
 
     font: 700 0.9rem "Roboto", sans-serif;
     color: white;
-
 }
 
 .link:hover, .active_page{
     background-color: rgba(139, 0, 139, 0.416);
 }
+
+/* .main_blur{
+    backdrop-filter: blur(5px);
+} */
 
