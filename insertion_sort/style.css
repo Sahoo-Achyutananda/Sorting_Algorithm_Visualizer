@@ -317,6 +317,8 @@ span#minimum_num{
     align-items: center;
     justify-content: center;
     padding : 10px;
+
+    /* position: sticky; */
 }
 
 #title {

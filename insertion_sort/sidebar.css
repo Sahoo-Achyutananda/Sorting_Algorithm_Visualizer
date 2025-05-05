@@ -1,6 +1,14 @@
 .hamburger{
     position: absolute;
     left: 30px;
+
+    background-color: rgba(153, 50, 204, 0.292);
+    height: 35px;
+    width: 35px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .sidebar{
@@ -41,5 +49,11 @@
 
 .link:hover, .active_page{
     background-color: rgba(139, 0, 139, 0.416);
+}
+
+@media (max-width: 500px){
+    .hamburger{
+        left: 10px;
+    }
 }
 

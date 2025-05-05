@@ -43,3 +43,8 @@
     background-color: rgba(139, 0, 139, 0.416);
 }
 
+@media (max-width: 500px){
+    .hamburger{
+        left: 10px;
+    }
+}
